@@ -1,0 +1,4 @@
+{
+    "presents":["es2017", "stage-4"],
+    "plugins":["transform-runtime"]
+}
