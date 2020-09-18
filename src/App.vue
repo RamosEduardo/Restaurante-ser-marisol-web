@@ -11,12 +11,18 @@
   import Sidebar from "./components/Menu/Sidebar.vue";
   import Footer from '@/components/Footer'
 
+  document.cookie = "AC-C=ac-c;expires=Fri, 31 Dec 9999 23:59:59 GMT;path=/;SameSite=Lax";
+
   export default {
     name: 'App',
     components: {
       Sidebar,
       // Home,
       Footer,
+    },
+    created() {
+      // console.log(this.$cookie)
+      // this.$cookie.set("SameSite", 'Lax', "31 Dec 9999 23:59:59 GMT")
     }
   }
 </script>
