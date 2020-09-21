@@ -10,8 +10,9 @@
 
   import Sidebar from "./components/Menu/Sidebar.vue";
   import Footer from '@/components/Footer'
+  import Cookies from 'js-cookie'
 
-  document.cookie = "AC-C=ac-c;expires=Fri, 31 Dec 9999 23:59:59 GMT;path=/;SameSite=Lax";
+  // document.cookie = "AC-C=ac-c;expires=Fri, 31 Dec 9999 23:59:59 GMT;path=/;SameSite=Lax";
 
   export default {
     name: 'App',
@@ -21,6 +22,8 @@
       Footer,
     },
     created() {
+  
+    Cookies.set('SameSite', 'None')
       // console.log(this.$cookie)
       // this.$cookie.set("SameSite", 'Lax', "31 Dec 9999 23:59:59 GMT")
     }
