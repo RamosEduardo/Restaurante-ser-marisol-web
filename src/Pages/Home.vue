@@ -31,7 +31,7 @@
       </div>
     </section>
     <!-- Estrutura - video youtube -->
-    <div id="estrutura" style="width:100%;padding:0px;background-color:#efefef">
+    <!-- <div id="estrutura" style="width:100%;padding:0px;background-color:#efefef">
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-12 p-t-50">
@@ -54,7 +54,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- Serviços -->
     <section class="section-intro parallax100 servicos-bg">
       <div class="content-intro p-t-77 p-b-133" style="padding-top: 77px">
