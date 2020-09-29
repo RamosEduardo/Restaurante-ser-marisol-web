@@ -1,5 +1,10 @@
 <template>
-  <div id="app" style="height: 100vh; overflow-x: scroll">
+  <div id="app" style="
+    height: 100%;
+    overflow-x: hidden;
+    margin-top: 0;
+    overflow-y: scroll;
+  ">
     <Sidebar />
     <router-view />
     <Footer />
