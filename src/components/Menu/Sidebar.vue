@@ -20,9 +20,9 @@
                 <span @click="closeSidebarPanel">CARDÁPIOS</span>
               </router-link>
             </li>
-            <li>
+            <!-- <li>
               <router-link to="#">AGENDA</router-link>
-            </li>
+            </li> -->
             <li>
               <router-link to="/eventos">
                 <span @click="closeSidebarPanel">EVENTOS</span>

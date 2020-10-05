@@ -72,7 +72,7 @@
               :key="`Servico-${index}`"
             >
               <div class="blo1">
-                <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
+                <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom" style="max-height: 220px">
                   <a href="#">
                     <img :src="servico.imagem" alt="IMG-INTRO" />
                   </a>

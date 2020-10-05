@@ -37,7 +37,7 @@
               </div>
             </a>
 
-            <a style="text-decoration: none" href="https://www.facebook.com/restaurantesermarisol" target="_blank">
+            <a style="text-decoration: none" href="buffetsermarisol@hotmail.com" target="_blank">
               <div class="row p-t-30 p-b-30" style="display:flex;justify-content:center;background-color: #c62421">
                 <div class="col-md-2 tit4" style="display:flex;justify-content:center; align-items:center">
                   <i class="fa fa-envelope" aria-hidden="true" />

@@ -21,7 +21,7 @@
               aria-hidden="true"
             >
               <div class="blo1">
-                <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
+                <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom" style="max-height: 220px">
                   <img @click="setIndex(index)" :src="imagem" alt="IMG-INTRO" />
                 </div>
               </div>
