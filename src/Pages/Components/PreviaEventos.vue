@@ -9,7 +9,7 @@
               style="color:#262424;margin-top:40px"
             >Eventos Recentes</h3>
           </div>
-          <div class="row" style="margin-top: 40px" v-if="state.view === 'geral'">
+          <div class="row" style="margin-top: 40px" v-if="state.view === 'geral' && state.listEventos">
             <div
               v-for="(evento, index) in state.listEventos"
               :key="evento.data + '||' + index"
@@ -19,7 +19,7 @@
               <div class="blo1">
                 <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
                   <img
-                    :src="evento.fotos[0] ? evento.fotos[0] : 'https://triunfo.pe.gov.br/pm_tr430/wp-content/uploads/2018/03/sem-foto.jpg'"
+                    :src="evento.fotos ? evento.fotos[0] : 'https://triunfo.pe.gov.br/pm_tr430/wp-content/uploads/2018/03/sem-foto.jpg'"
                     alt="IMG-INTRO"
                   />
                 </div>
@@ -96,10 +96,12 @@ export default {
       return fotos.map(foto => foto.imagem);
     },
     async listEventos() {
-      const { data } = await api.get("/eventos");
+      const { data } = await api.get("/all-eventos");
 
       data.map(async (evento) => {
-        evento.fotos = await this.getDetalheEvento(evento.id)
+        if (evento) {
+          evento.fotos = await this.getDetalheEvento(evento.id)
+        }
       })
 
       this.state.listEventos = data;

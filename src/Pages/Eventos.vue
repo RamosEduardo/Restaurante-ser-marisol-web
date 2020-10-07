@@ -90,7 +90,7 @@ export default {
   },
   methods: {
     async getEventos() {
-      const { data } = await api.get("/eventos");
+      const { data } = await api.get("/all-eventos");
       this.state.listEventos = data;
     },
     getDate() {
