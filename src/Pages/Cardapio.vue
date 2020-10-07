@@ -4,7 +4,7 @@
       title="Nossos Cardápios"
       background-image="https://storage.alboom.ninja/sites/9079/albuns/438105/bsb_0257.jpg?t=1557778188"
     />
-    <div style="background-color: black" class="p-t-70 bg1-pattern">
+    <div class="p-t-70 bg1-pattern">
       <div class="cardapio-bg">
         <div class="row" style="display: flex;">
           <div
@@ -65,12 +65,12 @@ export default {
 
 <style>
 .cardapio-bg {
-  background: url('https://www.wallpaperup.com/uploads/wallpapers/2012/08/06/9495/7bed6d1e532dd78cbe40c3443b4f8770.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  padding: 70px
+  padding-left: 70px;
+  padding-bottom: 50px
 }
 
 @media (min-width: 100%) {

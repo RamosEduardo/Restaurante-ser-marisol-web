@@ -19,12 +19,12 @@
               <div class="blo1">
                 <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
                   <img
-                    :src="'https://blog.wmjoias.com.br/wp-content/uploads/2019/01/9.jpg'"
+                    :src="evento.fotos[0] ? evento.fotos[0] : 'https://triunfo.pe.gov.br/pm_tr430/wp-content/uploads/2018/03/sem-foto.jpg'"
                     alt="IMG-INTRO"
                   />
                 </div>
                 <div class="wrap-text-blo1 p-t-10">
-                  <p>{{ getDate() }}</p>
+                  <p>{{ getDate(evento.data) }}</p>
                   <h4 class="txt5 color0-hov trans-0-4 m-b-13">{{ evento.titulo }}</h4>
                 </div>
               </div>
@@ -87,14 +87,31 @@ export default {
   async mounted() {
     console.log("Montou");
     await this.listEventos();
+    console.log(this.state.listEventos);
   },
   methods: {
+    async getDetalheEvento(eventoId) {
+      const { data } = await api.get(`/evento/${eventoId}`);
+      const { fotos } = data;
+      return fotos.map(foto => foto.imagem);
+    },
     async listEventos() {
       const { data } = await api.get("/eventos");
+
+      data.map(async (evento) => {
+        evento.fotos = await this.getDetalheEvento(evento.id)
+      })
+
       this.state.listEventos = data;
     },
-    getDate() {
-      return "10/10/10";
+    getDate(date) {
+      if (!date)
+            return '';
+        const newDate = new Date(date);
+        const day = newDate.getDate().toString().length > 1 ? newDate.getDate() : `0${newDate.getDate()}`;
+        const month = newDate.getUTCMonth().toString().length > 1 ? newDate.getUTCMonth() : `0${newDate.getUTCMonth()}`;
+        const dateFormat = `${day}/${month}/${newDate.getFullYear()}`;
+        return dateFormat;
     },
     openDetails(evento) {
       this.state.view = "detalhes";
