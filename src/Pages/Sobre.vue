@@ -8,7 +8,9 @@
       <span class="tit2 t-center">Restaurante Ser Marisol</span>
 
       <h3 class="tit3 t-center m-b-35 m-t-5">Conheça Nossa História</h3>
-      <p class="t-center size32 m-l-r-auto">{{ state.informacoes.nossaIdentidade }}</p>
+      <p class="t-center size32 m-l-r-auto">
+        Situado junto a Recreativa da Empresa Marisol, o restaurante vem desde 1984 fazendo parte dos acontecimentos sociais da nossa região, casamentos, formaturas, shows e eventos corporativos marcantes fazem parte da nossa história; Rodeado pela natureza e com uma arquitetura com madeiras nobres aparente o espaço acabou ficando muito procurado para eventos de todos os portes; Durante o almoço os clientes sempre encontram um cardápio variado que busca valorizar a gastronomia cultural da nossa cidade. Pelo espaço já se passaram algumas gestões, hoje temos a honra de administrar o restaurante desde maio de 2018, sempre seguindo os princípios da recreativa e os nossos valores o restaurante está em seu momento de auge junto a comunidade.
+      </p>
     </div>
     <section class="bg1-pattern p-t-120 p-b-105">
       <div class="container">
@@ -19,7 +21,9 @@
 
               <h3 class="tit3 t-center m-b-35 m-t-5">Visão</h3>
 
-              <p class="t-center m-b-22 size3 m-l-r-auto">{{ state.informacoes.visao }}</p>
+              <p class="t-center m-b-22 size3 m-l-r-auto">
+                Se manter no mercado gastronômico e de eventos como referência de ética profissional.
+              </p>
             </div>
           </div>
 
@@ -50,7 +54,7 @@
               <h3 class="tit3 t-center m-b-35 m-t-5">Missão</h3>
 
               <p class="t-center m-b-22 size3 m-l-r-auto">
-                {{ state.informacoes.missao }}
+                Trabalhar sempre dentro das mais altas exigências para entregar o melhor para você cliente .
               </p>
             </div>
           </div>
@@ -62,7 +66,7 @@
               <h3 class="tit3 t-center m-b-35 m-t-5">Valores</h3>
 
               <p class="t-center m-b-22 size3 m-l-r-auto">
-                {{ state.informacoes.valores }}
+                Relacionamento ético, valorizar e respirar os recursos ambientais e culturais da região. Qualidade para resultar na satisfação dos nossos clientes.
               </p>
             </div>
           </div>
@@ -83,7 +87,6 @@
 
 <script>
 import Capa from "@/components/Capa/Capa";
-import api from "@/api/api";
 
 export default {
   data() {
@@ -95,15 +98,6 @@ export default {
   },
   components: {
     Capa,
-  },
-  mounted() {
-    this.getAboutInfos();
-  },
-  methods: {
-    async getAboutInfos() {
-      const { data } = await api.get("/infos");
-      this.state.informacoes = data;
-    },
   },
 };
 </script>
