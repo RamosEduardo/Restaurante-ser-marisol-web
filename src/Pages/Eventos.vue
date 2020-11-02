@@ -54,7 +54,7 @@
           <!-- se for detalhe -->
 
           <div v-if="state.view === 'detalhes'" class="row" style="margin-top: 40px">
-            <eventos-detalhes :evento-id="state.eventoSelecionado.id" />
+            <eventos-detalhes :evento-id="state.eventoSelecionado._id" />
           </div>
         </div>
       </div>

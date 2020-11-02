@@ -62,7 +62,7 @@
           <div class="row" style="justify-content:center">
             <h3
               class="tit4 t-center mt-10 p-t-3"
-              style="color:white; margin-top:40px"
+              style="color:black; margin-top:40px"
             >Nossos Serviços</h3>
           </div>
           <div class="row" style="margin-top: 40px">
@@ -81,10 +81,9 @@
                   <a href="#" style="text-decoration: none">
                     <h4
                       class="txt5 color0-hov trans-0-4 m-b-13"
-                      style="color:#fff;"
                     >{{ servico.titulo }}</h4>
                   </a>
-                  <p class="m-b-20" style="color: white">{{ servico.descricao }}</p>
+                  <p class="m-b-20">{{ servico.descricao }}</p>
                 </div>
               </div>
             </div>
@@ -140,7 +139,7 @@ export default {
   position: initial;
 }
 .servicos-bg {
-  background-image: url("https://www.wallpaperup.com/uploads/wallpapers/2012/08/06/9495/7bed6d1e532dd78cbe40c3443b4f8770.jpg");
+  background-image: url("https://www.saudedivertida.com.br/wp-content/uploads/2020/01/Clean-White-Presentation-Background.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
