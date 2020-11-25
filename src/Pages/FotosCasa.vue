@@ -25,8 +25,8 @@ export default {
       fotos: []
     }
   },
-  mounted() {
-    this.getFotosCasa()
+  async mounted() {
+    await this.getFotosCasa()
   },
   beforeDestroy() {
     this.fotos = []
@@ -38,9 +38,7 @@ export default {
   methods: {
     async getFotosCasa() {
       const { data } = await api.get(`/fotos-casa`);
-			
 			this.fotos = data.map(foto => foto.imagem)
-			console.log(this.fotos);
     },
   },
 }

@@ -7,6 +7,7 @@
             <h3
               class="tit4 t-center mt-10 p-l-15 p-r-15 p-t-3"
               style="color:#262424;margin-top:40px"
+              v-if="state.view === 'geral'"
             >Eventos Recentes</h3>
           </div>
           <div class="row" style="margin-top: 40px" v-if="state.view === 'geral' && state.listEventos">
@@ -42,7 +43,7 @@
             </v-btn>
           </div>
           <div v-if="state.view === 'detalhes'" class="row" style="margin-top: 40px">
-            <eventos-detalhes :evento-id="state.eventoSelecionado.id" />
+            <eventos-detalhes :evento-id="state.eventoSelecionado._id" />
           </div>
         </div>
       </div>

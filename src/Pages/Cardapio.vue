@@ -14,8 +14,8 @@
           >
             <CardapioCard
               :title="cardapio.titulo"
-              v-if="cardapio.produtosCardapio && cardapio.produtosCardapio.length > 0"
-              :produtos-cardapio="cardapio.produtosCardapio"
+              v-if="cardapio.produtos && cardapio.produtos.length > 0"
+              :produtos-cardapio="cardapio.produtos"
             />
           </div>
         </div>
