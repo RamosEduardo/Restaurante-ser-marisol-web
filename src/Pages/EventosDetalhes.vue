@@ -1,9 +1,13 @@
 <template>
   <div>
     <!-- Transição para trocar -->
-    <header style="padding-left: 10px">
-      <h4 class="txt7 color0-hov trans-0-4 m-b-2">{{ evento.titulo }}</h4>
-      <h4 class="txt5 color0-hov trans-0-4 m-b-13">{{ getDate(evento.data) }}</h4>
+    <header style="padding-left: 10px;">
+      <div style="display: flex">
+        <h4 class="txt7 color0-hov trans-0-4 m-b-2">{{ evento.titulo }}</h4>
+      </div>
+      <div style="display: flex">
+        <h4 class="txt5 color0-hov trans-0-4 m-b-13">{{ getDate(evento.data) }}</h4>
+      </div>
     </header>
     <galeria-imagens
       v-if="evento"

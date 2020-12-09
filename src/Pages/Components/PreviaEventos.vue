@@ -2,7 +2,7 @@
   <div>
     <section class="section-intro">
       <div class="content-intro bg-white p-t-10 p-b-20">
-        <div class="container">
+        <div class="container" v-if="!state.isLoading">
           <div class="row" style="justify-content:center">
             <h3
               class="tit4 t-center mt-10 p-l-15 p-r-15 p-t-3"
@@ -10,7 +10,7 @@
               v-if="state.view === 'geral'"
             >Eventos Recentes</h3>
           </div>
-          <div class="row" style="margin-top: 40px" v-if="state.view === 'geral' && state.listEventos">
+          <div class="row" style="margin-top: 40px" v-if="state.view === 'geral'">
             <div
               v-for="(evento, index) in state.listEventos"
               :key="evento.data + '||' + index"
@@ -20,7 +20,7 @@
               <div class="blo1">
                 <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
                   <img
-                    :src="evento.fotos ? evento.fotos[0] : 'https://triunfo.pe.gov.br/pm_tr430/wp-content/uploads/2018/03/sem-foto.jpg'"
+                    :src="'https://triunfo.pe.gov.br/pm_tr430/wp-content/uploads/2018/03/sem-foto.jpg'"
                     alt="IMG-INTRO"
                   />
                 </div>
@@ -61,6 +61,7 @@ export default {
       state: {
         listEventos: [],
         view: "geral",
+        isloading: true,
       },
       props: {
         descriptionView: {
@@ -86,8 +87,9 @@ export default {
     EventosDetalhes,
   },
   async mounted() {
-    console.log("Montou");
     await this.listEventos();
+    console.log("Montou", this.state.listEventos);
+    this.state.isloading = false
     console.log(this.state.listEventos);
   },
   methods: {
@@ -98,16 +100,19 @@ export default {
     },
     async listEventos() {
       const { data } = await api.get("/all-eventos");
+      console.log('DATA ', data);
 
-      data.map(async (evento) => {
+      data.eventos.map(async (evento) => {
         if (evento) {
           evento.fotos = await this.getDetalheEvento(evento.id)
         }
       })
 
-      this.state.listEventos = data;
+
+      this.state.listEventos = data.eventos;
     },
     getDate(date) {
+      console.log('DATA ', date);
       if (!date)
             return '';
         const newDate = new Date(date);

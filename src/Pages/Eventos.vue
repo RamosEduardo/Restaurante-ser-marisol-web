@@ -20,20 +20,18 @@
               Voltar
             </v-btn>
           </div>
-          <div v-if="state.view === 'geral'" class="row" style="margin-top: 40px">
+          <div v-if="state.view === 'geral' && !state.isLoading" class="row" style="margin-top: 40px">
             <div
               v-for="(evento, index) in state.listEventos"
               :key="evento.data + '||' + index"
-              :class="`p-t-30 col-md-3`"
+              :class="`p-t-30 col-md-4`"
             >
               <div class="blo1">
-                <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
-                  <a href="#">
+                <div class="wrap-pic-blo2 bo-rad-10 hov-img-zoom">
                     <img
-                      :src="'https://blog.wmjoias.com.br/wp-content/uploads/2019/01/9.jpg'"
-                      alt="IMG-INTRO"
+                      :src="evento.fotos[0].imagem"
                     />
-                  </a>
+                    
                 </div>
                 <div class="wrap-text-blo1 p-t-10">
                   <h4 class="txt5 color0-hov trans-0-4 m-b-13">{{ evento.titulo }}</h4>
@@ -74,6 +72,7 @@ export default {
         view: "geral",
         listEventos: [],
         eventoSelecionado: {},
+        isloading: true
       },
       page: 1,
     };
@@ -82,8 +81,8 @@ export default {
     Capa,
     EventosDetalhes,
   },
-  mounted() {
-    this.getEventos();
+  async mounted() {
+    await this.getEventos();
   },
   destroyed() {
     this.state.eventoSelecionado = {};
@@ -91,7 +90,9 @@ export default {
   methods: {
     async getEventos() {
       const { data } = await api.get("/all-eventos");
-      this.state.listEventos = data;
+      this.state.listEventos = data.eventos;
+      this.state.isloading = false
+      console.log('LIST ', this.state.listEventos);
     },
     getDate() {
       return "10/10/10";
