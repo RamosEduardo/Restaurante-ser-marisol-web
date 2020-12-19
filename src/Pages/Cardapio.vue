@@ -4,22 +4,13 @@
       title="Nossos Cardápios"
       background-image="https://storage.alboom.ninja/sites/9079/albuns/438105/bsb_0257.jpg?t=1557778188"
     />
-    <div class="p-t-70 bg1-pattern">
-      <div class="cardapio-bg">
-        <div class="row" style="display: flex;">
-          <div
-            style="margin-left: 10px; margin-bottom: 10px"
-            v-for="(cardapio, index) in state.cardapios"
-            :key="`Cardapio||${index}`"
-          >
-            <CardapioCard
-              :title="cardapio.titulo"
-              v-if="cardapio.produtos && cardapio.produtos.length > 0"
-              :produtos-cardapio="cardapio.produtos"
-            />
-          </div>
-        </div>
-      </div>
+    <div>
+      <galeria-imagens
+        v-if="state.cardapios"
+        :imagens="state.cardapios"
+        :mostrarTitulo="true"
+        :md="6"
+      />
     </div>
   </div>
 </template>
@@ -27,7 +18,7 @@
 <script>
 import api from "@/api/api";
 import Capa from "@/components/Capa/Capa";
-import CardapioCard from "@/Pages/Components/CardapioCard";
+import GaleriaImagens from '@/Pages/Components/GaleriaImagens'
 
 export default {
   name: "Cardapio",
@@ -35,29 +26,23 @@ export default {
     return {
       state: {
         cardapios: [],
-        produtos: [
-          {
-            produto: "arroz",
-          },
-          {
-            produto: "Feijão",
-          },
-        ],
       },
     };
   },
   components: {
     Capa,
-    CardapioCard,
+    GaleriaImagens
   },
   mounted() {
     this.getCardapiosList();
   },
   methods: {
     async getCardapiosList() {
-      const { data } = await api.get("/cardapios");
-      console.log("DATA ", data);
-      this.state.cardapios = data;
+      const { data } = await api.get("/pratos");
+      
+      const test = data.map((cardapio) => cardapio.imagem);
+
+      this.state.cardapios = test
     },
   },
 };

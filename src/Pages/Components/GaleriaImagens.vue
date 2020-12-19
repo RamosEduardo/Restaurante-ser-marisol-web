@@ -15,7 +15,7 @@
             <div
               v-for="(imagem, index) in imagens"
               :key="`ImagemEvento||${index}`"
-              class="p-t-30 col-md-3"
+              :class="`p-t-30 col-md-${md}`"
               data-toggle="modal"
               data-target="#modal-video-01"
               aria-hidden="true"
@@ -64,6 +64,10 @@ export default {
       type: Array,
       default: () => [],
     },
+    md: {
+      type: Number,
+      default: 3
+    }
   },
 };
 </script>

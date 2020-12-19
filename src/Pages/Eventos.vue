@@ -28,12 +28,10 @@
             >
               <div class="blo1">
                 <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
-                  <a href="#">
-                    <img
-                      :src="'https://blog.wmjoias.com.br/wp-content/uploads/2019/01/9.jpg'"
-                      alt="IMG-INTRO"
-                    />
-                  </a>
+                  <img
+                    :src="evento.fotos[0] ? evento.fotos[0].imagem : 'https://triunfo.pe.gov.br/pm_tr430/wp-content/uploads/2018/03/sem-foto.jpg'"
+                    alt="IMG-INTRO"
+                  />
                 </div>
                 <div class="wrap-text-blo1 p-t-10">
                   <h4 class="txt5 color0-hov trans-0-4 m-b-13">{{ evento.titulo }}</h4>
