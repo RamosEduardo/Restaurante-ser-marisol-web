@@ -2,7 +2,7 @@
   <div>
     <section class="section-intro">
       <div class="content-intro bg-white p-t-10 p-b-20">
-        <div class="container">
+        <div class="container" v-if="!state.isLoading">
           <div class="row" style="justify-content:center">
             <h3
               class="tit4 t-center mt-10 p-l-15 p-r-15 p-t-3"
@@ -20,7 +20,7 @@
               <div class="blo1">
                 <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
                   <img
-                    :src="evento.fotos[0] ? evento.fotos[0].imagem : 'https://triunfo.pe.gov.br/pm_tr430/wp-content/uploads/2018/03/sem-foto.jpg'"
+                    :src="'https://triunfo.pe.gov.br/pm_tr430/wp-content/uploads/2018/03/sem-foto.jpg'"
                     alt="IMG-INTRO"
                   />
                 </div>
@@ -61,6 +61,7 @@ export default {
       state: {
         listEventos: [],
         view: "geral",
+        isloading: true,
       },
       props: {
         descriptionView: {
@@ -86,8 +87,9 @@ export default {
     EventosDetalhes,
   },
   async mounted() {
-    console.log("Montou");
     await this.listEventos();
+    console.log("Montou", this.state.listEventos);
+    this.state.isloading = false
     console.log(this.state.listEventos);
   },
   methods: {
@@ -97,15 +99,20 @@ export default {
       return fotos.map(foto => foto.imagem);
     },
     async listEventos() {
-      const { data } = await api.get("/eventos");
+      const { data } = await api.get("/all-eventos");
+      console.log('DATA ', data);
 
-      data.map(async (evento) => {
-        evento.fotos = await this.getDetalheEvento(evento.id)
+      data.eventos.map(async (evento) => {
+        if (evento) {
+          evento.fotos = await this.getDetalheEvento(evento.id)
+        }
       })
 
-      this.state.listEventos = data;
+
+      this.state.listEventos = data.eventos;
     },
     getDate(date) {
+      console.log('DATA ', date);
       if (!date)
             return '';
         const newDate = new Date(date);
