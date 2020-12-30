@@ -7,10 +7,15 @@
             <Navbar />
             <div class="container">
               <div class="row">
-                <h3
-                  class="tit4 t-center m-t-100"
-                  style="margin-top:250px; margin-left:-55px"
-                >Restaurante e Espaço para Eventos</h3>
+                <div style="padding-top: 110px">
+                  <span
+                    class="tit4 t-center m-t-100"
+                    style="margin-top:250px"
+                  >
+                    {{ getTextPresentation() }}
+                  </span>
+
+                </div>
               </div>
               <div class="row" style="justify-content:center; align-items:center; display:flex">
                 <v-btn
@@ -118,6 +123,18 @@ export default {
     this.listServices();
   },
   methods: {
+    getTextPresentation() {
+      var windowWidth = window.innerWidth;
+        var windowHeight = window.innerHeight;
+        
+        var screenWidth = screen.width;
+        var screenHeight = screen.height;
+        
+        console.log(screenWidth)
+        console.log(screenHeight)
+
+        return screenWidth < 630 ? 'Conheça nosso Espaço' : 'Restaurante e espaço de eventos'
+    },
     async listServices() {
       const { data } = await api.get("/servicos");
       this.state.servicos = data;
@@ -145,5 +162,16 @@ export default {
   background-size: cover;
   width: 100%;
   height: 100%;
+}
+
+.enunciado {
+  font-family: Poppins;
+  font-weight: 700;
+  font-size: 149%;
+  line-height: 1.2;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  word-spacing: 6px;
 }
 </style>

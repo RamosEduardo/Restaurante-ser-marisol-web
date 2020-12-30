@@ -15,6 +15,16 @@
     <section class="bg1-pattern p-t-120 p-b-105">
       <div class="container">
         <div class="row">
+          
+          <div class="col-md-6 p-t-60">
+            <div class="wrap-pic-delicious size2 bo-rad-10 hov-img-zoom m-l-r-auto">
+              <img
+                src="https://www.hoffmann.com/blog/wp-content/uploads/2019/07/evento-corporativo-1024x683.jpg"
+                alt="IMG-OUR"
+              />
+            </div>
+          </div>
+          
           <div class="col-md-6 p-t-45">
             <div class="wrap-text-delicious t-center">
               <span class="tit2 t-center">Conheça nossa</span>
@@ -27,14 +37,6 @@
             </div>
           </div>
 
-          <div class="col-md-6 p-t-60">
-            <div class="wrap-pic-delicious size2 bo-rad-10 hov-img-zoom m-l-r-auto">
-              <img
-                src="https://www.hoffmann.com/blog/wp-content/uploads/2019/07/evento-corporativo-1024x683.jpg"
-                alt="IMG-OUR"
-              />
-            </div>
-          </div>
         </div>
 
         <div class="row p-t-20">
@@ -60,6 +62,15 @@
           </div>
 
           <div class="col-md-6 p-t-60">
+            <div class="wrap-pic-romantic size2 bo-rad-10 hov-img-zoom m-l-r-auto">
+              <img
+                src="https://cdn0.casamentos.com.br/articles/images/real-wedding/6/2/9/1756247.jpg"
+                alt="IMG-OUR"
+              />
+            </div>
+          </div>
+
+          <div class="col-md-6 p-t-60">
             <div class="wrap-text-romantic t-center">
               <span class="tit2 t-center">Conheça nossos</span>
 
@@ -71,14 +82,6 @@
             </div>
           </div>
 
-          <div class="col-md-6 p-t-60">
-            <div class="wrap-pic-romantic size2 bo-rad-10 hov-img-zoom m-l-r-auto">
-              <img
-                src="https://cdn0.casamentos.com.br/articles/images/real-wedding/6/2/9/1756247.jpg"
-                alt="IMG-OUR"
-              />
-            </div>
-          </div>
         </div>
       </div>
     </section>
