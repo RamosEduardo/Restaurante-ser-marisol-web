@@ -1,7 +1,9 @@
 <template>
   <nav class="main-nav">
     <div class="logo">
-      <img src="../../assets/logo.png" />
+      <router-link to="/">
+        <img src="../../assets/logo.png" />
+      </router-link>
     </div>
     <div class="burger-content">
       <a style="text-decoration: none" href="https://api.whatsapp.com/send?phone=5547984287818&text=Ol%C3%A1%2C%20estou%20entrando%20em%20contato%20ap%C3%B3s%20acessar%20seu%20site!" target="_blank">

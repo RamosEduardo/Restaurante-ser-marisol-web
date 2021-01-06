@@ -20,9 +20,9 @@
                 <span @click="closeSidebarPanel">CARDÁPIOS</span>
               </router-link>
             </li>
-            <!-- <li>
-              <router-link to="#">AGENDA</router-link>
-            </li> -->
+            <li>
+              <router-link to="/fotos-casa">FOTOS DA CASA</router-link>
+            </li>
             <li>
               <router-link to="/eventos">
                 <span @click="closeSidebarPanel">EVENTOS</span>
