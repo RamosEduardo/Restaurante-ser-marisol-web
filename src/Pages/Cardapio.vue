@@ -9,7 +9,7 @@
         v-if="state.cardapios"
         :imagens="state.cardapios"
         :mostrarTitulo="true"
-        :md="6"
+        :md="4"
       />
     </div>
   </div>
