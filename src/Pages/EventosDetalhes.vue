@@ -48,7 +48,6 @@ export default {
     async getDetalheEvento() {
       const { data } = await api.get(`/evento/${this.eventoId}`);
       this.evento = data
-      console.log('<<',this.evento);
       const { fotos } = data;
       const listaFotos = fotos.map(foto => foto.imagem);
       this.fotos = listaFotos

@@ -126,10 +126,6 @@ export default {
     getTextPresentation() {
         var screenWidth = screen.width;
         var screenHeight = screen.height;
-        
-        console.log(screenWidth)
-        console.log(screenHeight)
-
         return screenWidth < 630 ? 'Conheça nosso Espaço' : 'Restaurante e espaço de eventos'
     },
     async listServices() {

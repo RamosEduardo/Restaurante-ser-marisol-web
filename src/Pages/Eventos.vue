@@ -92,10 +92,6 @@ export default {
       const { data } = await api.get("/all-eventos");
       this.state.listEventos = data.eventos;
       this.state.isloading = false
-      console.log('LIST ', this.state.listEventos);
-    },
-    getDate() {
-      return "10/10/10";
     },
     openDetails(evento) {
       (this.state.view = "detalhes"), (this.state.eventoSelecionado = evento);

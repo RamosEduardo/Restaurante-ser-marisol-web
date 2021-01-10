@@ -60,12 +60,7 @@ export default {
       const month = this.state.options.find(
         (i) => i.value === "0" + date.getMonth().toString()
       );
-      console.log(`esse mes ,`, month);
       this.state.selectedOption = month
-    },
-
-    getEventoByMonth() {
-      console.log("Procurar");
     },
   },
   mounted() {

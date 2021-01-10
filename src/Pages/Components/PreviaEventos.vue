@@ -20,7 +20,7 @@
               <div class="blo1">
                 <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
                   <img
-                    :src="'https://triunfo.pe.gov.br/pm_tr430/wp-content/uploads/2018/03/sem-foto.jpg'"
+                    :src="!evento.fotos[0].imagem ? 'https://triunfo.pe.gov.br/pm_tr430/wp-content/uploads/2018/03/sem-foto.jpg' : evento.fotos[0].imagem"
                     alt="IMG-INTRO"
                   />
                 </div>
@@ -88,9 +88,7 @@ export default {
   },
   async mounted() {
     await this.listEventos();
-    console.log("Montou", this.state.listEventos);
     this.state.isloading = false
-    console.log(this.state.listEventos);
   },
   methods: {
     async getDetalheEvento(eventoId) {
@@ -100,8 +98,6 @@ export default {
     },
     async listEventos() {
       const { data } = await api.get("/all-eventos");
-      console.log('DATA ', data);
-
       data.eventos.map(async (evento) => {
         if (evento) {
           evento.fotos = await this.getDetalheEvento(evento.id)
@@ -112,7 +108,6 @@ export default {
       this.state.listEventos = data.eventos;
     },
     getDate(date) {
-      console.log('DATA ', date);
       if (!date)
             return '';
         const newDate = new Date(date);
