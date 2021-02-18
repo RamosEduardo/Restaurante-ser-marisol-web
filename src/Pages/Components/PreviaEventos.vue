@@ -20,7 +20,7 @@
               <div class="blo1">
                 <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
                   <img
-                    :src="!evento.fotos[0].imagem ? 'https://triunfo.pe.gov.br/pm_tr430/wp-content/uploads/2018/03/sem-foto.jpg' : evento.fotos[0].imagem"
+                    :src="evento.foto"
                     alt="IMG-INTRO"
                   />
                 </div>
@@ -91,21 +91,35 @@ export default {
     this.state.isloading = false
   },
   methods: {
-    async getDetalheEvento(eventoId) {
-      const { data } = await api.get(`/evento/${eventoId}`);
-      const { fotos } = data;
-      return fotos.map(foto => foto.imagem);
-    },
+    // async getDetalheEvento(eventoId) {
+    //   const { data } = await api.get(`/evento/${eventoId}`);
+    //   const { fotos } = data;
+    //   return fotos.map(foto => foto.imagem);
+    // },
     async listEventos() {
       const { data } = await api.get("/all-eventos");
-      data.eventos.map(async (evento) => {
-        if (evento) {
-          evento.fotos = await this.getDetalheEvento(evento.id)
-        }
+      // data.eventos.map(async (evento) => {
+      //   if (evento) {
+      //     evento.fotos = await this.getDetalheEvento(evento.id)
+      //   }
+      // })
+
+      const eventos = data.eventos.map(evento => {
+        const eventoNovo = {}
+
+        eventoNovo.titulo = evento.titulo;
+        eventoNovo.data = evento.data
+        eventoNovo.foto = evento.fotos.length <= 0
+          ? 'https://triunfo.pe.gov.br/pm_tr430/wp-content/uploads/2018/03/sem-foto.jpg'
+          : evento.fotos[0]
+          ? evento.fotos[0].imagem
+          : 'https://triunfo.pe.gov.br/pm_tr430/wp-content/uploads/2018/03/sem-foto.jpg'
+        
+        return eventoNovo
+      
       })
-
-
-      this.state.listEventos = data.eventos;
+      
+      this.state.listEventos = eventos;
     },
     getDate(date) {
       if (!date)

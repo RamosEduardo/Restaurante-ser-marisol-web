@@ -125,7 +125,6 @@ export default {
   methods: {
     getTextPresentation() {
         var screenWidth = screen.width;
-        var screenHeight = screen.height;
         return screenWidth < 630 ? 'Conheça nosso Espaço' : 'Restaurante e espaço de eventos'
     },
     async listServices() {
@@ -149,10 +148,7 @@ export default {
   position: initial;
 }
 .servicos-bg {
-  background-image: url("https://www.saudedivertida.com.br/wp-content/uploads/2020/01/Clean-White-Presentation-Background.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background-color: white;
   width: 100%;
   height: 100%;
 }
