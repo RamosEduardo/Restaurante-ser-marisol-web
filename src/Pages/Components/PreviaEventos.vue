@@ -15,7 +15,6 @@
               v-for="(evento, index) in state.listEventos"
               :key="evento.data + '||' + index"
               :class="`p-t-30 col-md-3`"
-              @click="openDetails(evento)"
             >
               <div class="blo1">
                 <div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
@@ -130,6 +129,7 @@ export default {
     openDetails(evento) {
       this.state.view = "detalhes";
       this.state.eventoSelecionado = evento;
+      console.log('EVENTO ', evento);
     },
     resetDetails() {
       this.state.view = "geral";

@@ -20,9 +20,11 @@
 
 import GaleriaImagens from '@/Pages/Components/GaleriaImagens'
 import api from '@/api/api'
+import moment from 'moment'
 
 export default {
   data() {
+    console.log('EVENTO ', this.eventoId);
     return {
       evento: {},
       fotos: []
@@ -55,12 +57,8 @@ export default {
     getDate(date) {
       if (!date)
             return '';
-        const newDate = new Date(date);
-        const day = newDate.getDate().toString().length > 1 ? newDate.getDate() : `0${newDate.getDate()}`;
-        const month = newDate.getUTCMonth().toString().length > 1 ? newDate.getUTCMonth() : `0${newDate.getUTCMonth()}`;
-        const dateFormat = `${day}/${month}/${newDate.getFullYear()}`;
-        return dateFormat;
-    }
+      return moment(date).format('DD/MM/YYYY')
+    },
   },
 }
 </script>
