@@ -54,6 +54,7 @@
 <script>
 import api from "@/api/api";
 import EventosDetalhes from "@/Pages/EventosDetalhes";
+import moment from 'moment'
 
 export default {
   data() {
@@ -124,11 +125,7 @@ export default {
     getDate(date) {
       if (!date)
             return '';
-        const newDate = new Date(date);
-        const day = newDate.getDate().toString().length > 1 ? newDate.getDate() : `0${newDate.getDate()}`;
-        const month = newDate.getUTCMonth().toString().length > 1 ? newDate.getUTCMonth() : `0${newDate.getUTCMonth()}`;
-        const dateFormat = `${day}/${month}/${newDate.getFullYear()}`;
-        return dateFormat;
+      return moment(date).format('DD/MM/YYYY')
     },
     openDetails(evento) {
       this.state.view = "detalhes";
