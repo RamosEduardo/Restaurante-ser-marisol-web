@@ -124,7 +124,7 @@ export default {
     getDate(date) {
       if (!date)
             return '';
-      return moment(date).format('DD/MM/YYYY')
+      return moment(date).utc.format('DD/MM/YYYY')
     },
     openDetails(evento) {
       this.state.view = "detalhes";
